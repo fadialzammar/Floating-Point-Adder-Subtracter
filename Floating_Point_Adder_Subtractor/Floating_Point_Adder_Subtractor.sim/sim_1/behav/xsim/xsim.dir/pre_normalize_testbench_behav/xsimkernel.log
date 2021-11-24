@@ -2,3 +2,6 @@ Running: xsim.dir/pre_normalize_testbench_behav/xsimk.exe -simmode gui -wdb pre_
 Design successfully loaded
 Design Loading Memory Usage: 5408 KB (Peak: 5408 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 6176 KB (Peak: 6176 KB)
+Simulation CPU Usage: 31 ms

@@ -64,7 +64,7 @@ module Adder_Subtractor(
                     case (shift_flag)
                         // There is no shift -> add both leading 1's back
                         0:  begin
-                                mant_B_2s_cmp = {1'b1, mant_B} ^ 24'b111111111111111111111111;
+                                mant_B_2s_cmp = ~{1'b1, mant_B};
                                 mant_B_2s_cmp = mant_B_2s_cmp + 1;
                                 mant = {1'b1,mant_A} + mant_B_2s_cmp;
                                 // set C flag if there is an overflow (MSB of mant_full set to 0)
@@ -72,7 +72,7 @@ module Adder_Subtractor(
                             end
                         // There is a shift -> only add leading 1 to mant_A
                         1:  begin
-                                mant_B_2s_cmp = {1'b0, mant_B} ^ 24'b111111111111111111111111;
+                                mant_B_2s_cmp = ~{1'b0, mant_B};
                                 mant_B_2s_cmp = mant_B_2s_cmp + 1;
                                 mant = {1'b1,mant_A} + mant_B_2s_cmp;
                                 // set C flag if there is an overflow (MSB of mant set to 1)
