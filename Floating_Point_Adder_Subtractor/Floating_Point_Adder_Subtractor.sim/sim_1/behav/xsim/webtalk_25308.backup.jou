@@ -2,8 +2,8 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Nov 23 21:43:32 2021
-# Process ID: 24740
+# Start of session at: Mon Nov 29 17:40:36 2021
+# Process ID: 25308
 # Current directory: C:/Users/izakw/OneDrive/Documents/GitHub/Floating-Point-Adder-Subtracter/Floating_Point_Adder_Subtractor/Floating_Point_Adder_Subtractor.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/izakw/OneDrive/Documents/GitHub/Floating-Point-Adder-Subtracter/Floating_Point_Adder_Subtractor/Floating_Point_Adder_Subtractor.sim/sim_1/behav/xsim/xsim.dir/pre_normalize_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/izakw/OneDrive/Documents/GitHub/Floating-Point-Adder-Subtracter/Floating_Point_Adder_Subtractor/Floating_Point_Adder_Subtractor.sim/sim_1/behav/xsim/webtalk.log

@@ -48,8 +48,8 @@ module Pre_Normalize(
         
         // Mantissa B needs to be shifted to the right by the difference in the exponent values
         exp_diff = exp_A - exp_B;
-        // Shift flag is set if the exponents fo not align and B is shifted to accomodate
-        shift_flag = (exp_diff == 0) ? 1'b0 : 1'b1;
+        // Shift flag is set if the exponents do not align and B is shifted to accomodate
+        shift_flag = (exp_diff != 0);
         
         // Pad mant_B with three trailing zeros
         int_mant_B = {mant_B, 3'b000};
@@ -71,15 +71,31 @@ module Pre_Normalize(
                     0: GRS[0] = int_mant_B[0];
                     1: GRS[0] = int_mant_B[0];
                     2: GRS[0] = mant_B[0] | int_mant_B[0];
-                    3: GRS[0] = mant_B[1] | mant_B[0] | int_mant_B[0];
-                    4: GRS[0] = mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    5: GRS[0] = mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    6: GRS[0] = mant_B[4] | mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    7: GRS[0] = mant_B[5] | mant_B[4] | mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    8: GRS[0] = mant_B[6] | mant_B[5] | mant_B[4] | mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    9: GRS[0] = mant_B[7] | mant_B[6] | mant_B[5] | mant_B[4] | mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
-                    //Rest of cases default to the logical or of the lower byte of the mantissa
-                    default: GRS[0] = mant_B[7] | mant_B[6] | mant_B[5] | mant_B[4] | mant_B[3] | mant_B[2] | mant_B[1] | mant_B[0] | int_mant_B[0];
+                    3: GRS[0] = |mant_B[1:0] | int_mant_B[0];
+                    4: GRS[0] = |mant_B[2:0] | int_mant_B[0];
+                    5: GRS[0] = |mant_B[3:0] | int_mant_B[0];
+                    6: GRS[0] = |mant_B[4:0] | int_mant_B[0];
+                    7: GRS[0] = |mant_B[5:0] | int_mant_B[0];
+                    8: GRS[0] = |mant_B[6:0] | int_mant_B[0];
+                    9: GRS[0] = |mant_B[7:0] | int_mant_B[0];
+                    10: GRS[0] = |mant_B[8:0] | int_mant_B[0];
+                    11: GRS[0] = |mant_B[9:0] | int_mant_B[0];
+                    12: GRS[0] = |mant_B[10:0] | int_mant_B[0];
+                    13: GRS[0] = |mant_B[11:0] | int_mant_B[0];
+                    14: GRS[0] = |mant_B[12:0] | int_mant_B[0];
+                    15: GRS[0] = |mant_B[13:0] | int_mant_B[0];
+                    16: GRS[0] = |mant_B[14:0] | int_mant_B[0];
+                    17: GRS[0] = |mant_B[15:0] | int_mant_B[0];
+                    18: GRS[0] = |mant_B[16:0] | int_mant_B[0];
+                    19: GRS[0] = |mant_B[17:0] | int_mant_B[0];
+                    20: GRS[0] = |mant_B[18:0] | int_mant_B[0];
+                    21: GRS[0] = |mant_B[19:0] | int_mant_B[0];
+                    22: GRS[0] = |mant_B[20:0] | int_mant_B[0];
+                    23: GRS[0] = |mant_B[21:0] | int_mant_B[0];
+                    24: GRS[0] = |mant_B[22:0] | int_mant_B[0];
+                    25: GRS[0] = |mant_B[23:0] | int_mant_B[0];
+                    //Rest of cases default to the logical OR of all bits for larger shifts
+                    default: GRS[0] = |mant_B[23:0] | int_mant_B[0];
                 endcase
             end
         else
