@@ -3,7 +3,7 @@ module rounder(
     input [22:0] mant,
     input [7:0] exp,
     input [2:0] GRS,
-    output [31:0] S
+    output logic [31:0] S
     );
 
     always_comb begin
