@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/izakw/OneDrive/Documents/GitHub/Floating-Point-Adder-Subtracter/Floating_Point_Adder_Subtractor/Floating_Point_Adder_Subtractor.srcs/sources_1/new/Adder_Subtractor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder_Subtractor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/izakw/OneDrive/Documents/GitHub/Floating-Point-Adder-Subtracter/Floating_Point_Adder_Subtractor/Floating_Point_Adder_Subtractor.srcs/sim_1/new/Add_Sub_testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Add_Sub_testbench

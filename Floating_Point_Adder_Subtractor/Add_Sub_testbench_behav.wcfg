@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="65551fs"></ZoomEndTime>
-      <Cursor1Time time="20000fs"></Cursor1Time>
+      <ZoomStartTime time="93333fs"></ZoomStartTime>
+      <ZoomEndTime time="1181334fs"></ZoomEndTime>
+      <Cursor1Time time="1000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="153"></NameColumnWidth>
+      <NameColumnWidth column_width="148"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
+   <WVObjectSize size="6" />
    <wvobject fp_name="group62" type="group">
       <obj_property name="label">Flags</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -35,10 +35,6 @@
       <wvobject fp_name="/Add_Sub_testbench/z_flag" type="logic">
          <obj_property name="ElementShortName">z_flag</obj_property>
          <obj_property name="ObjectShortName">z_flag</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Add_Sub_testbench/c_flag" type="logic">
-         <obj_property name="ElementShortName">c_flag</obj_property>
-         <obj_property name="ObjectShortName">c_flag</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group63" type="group">
@@ -77,5 +73,20 @@
          <obj_property name="ObjectShortName">mant[24:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject fp_name="/Add_Sub_testbench/GSR" type="array">
+      <obj_property name="ElementShortName">GSR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">GSR[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Add_Sub_testbench/GSR_out" type="array">
+      <obj_property name="ElementShortName">GSR_out[2:0]</obj_property>
+      <obj_property name="ObjectShortName">GSR_out[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Add_Sub_testbench/DUT/int_mant" type="array">
+      <obj_property name="ElementShortName">int_mant[27:0]</obj_property>
+      <obj_property name="ObjectShortName">int_mant[27:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

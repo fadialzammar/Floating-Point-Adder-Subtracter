@@ -28,10 +28,12 @@ module Add_Sub_testbench();
     logic [22:0] mant_A = 0;
     logic sign_B = 0;
     logic [22:0] mant_B = 0;
+    logic [2:0] GRS_in = 0;
     // Outputs
     logic sign;
-    logic z_flag, c_flag;
+    logic z_flag;
     logic [24:0] mant;
+    logic [2:0] GRS_out;
     
     Adder_Subtractor DUT (.*);
      
@@ -39,6 +41,7 @@ module Add_Sub_testbench();
      begin 
          #10;
          // Addition
+         GRS_in = 3'b000;
          sub = 0;
          // Different powers of 2 -> shift
          shift_flag = 1;
@@ -50,6 +53,18 @@ module Add_Sub_testbench();
          mant_B = 23'b11010111000010100011110;
          #10;
          // Subtraction
+         sub = 1;
+         // Different powers of 2 -> shift
+         shift_flag = 1;
+         // Set A to 0.54
+         sign_A= 0;
+         mant_A = 23'b00010100011110101110000;
+         // Set B to 0.42
+         sign_B= 0;
+         mant_B = 23'b11010111000010100011110;
+         #10;
+         // Subtraction -- Added GSR bits
+         GRS_in = 3'b101;
          sub = 1;
          // Different powers of 2 -> shift
          shift_flag = 1;

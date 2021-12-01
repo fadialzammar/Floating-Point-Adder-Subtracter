@@ -27,12 +27,15 @@ module Adder_Subtractor(
     input sign_B,
     input [22:0] mant_A,
     input [22:0] mant_B,
+    input [2:0] GRS_in,
     output logic z_flag,
     output logic sign,
-    output logic [24:0] mant
+    output logic [24:0] mant,
+    output logic [2:0] GRS_out
     );
     
-    logic [24:0] mant_B_2s_cmp;
+    logic [27:0] mant_B_2s_cmp;
+    logic [27:0] int_mant;
     
     always_comb begin
         case (sub)
@@ -41,17 +44,20 @@ module Adder_Subtractor(
                     case (shift_flag)
                         // There is no shift -> add both leading 1's back
                         0:  begin
-                                mant = {1'b1,mant_A} + {1'b1, mant_B};
+                                int_mant = {1'b1, mant_A,3'b000} + {1'b1, mant_B, GRS_in};
                             end
                         // There is a shift -> only add leading 1 to mant_A
                         1:  begin
-                                mant = {1'b1,mant_A} + {1'b0, mant_B};
+                                int_mant = {1'b1, mant_A,3'b000} + {1'b0, mant_B, GRS_in};
                             end
                     endcase
+                    // Set outputs
+                    mant = int_mant[27:3];
+                    GRS_out = int_mant[2:0];
                     // A is larger than B, so the sign of A will be preserved
                     sign = sign_A;
                     // Set Z flag if result is 0
-                    z_flag = (mant == 0) ? 1'b1 : 1'b0;
+                    z_flag = (int_mant == 0);
                end
             
             // Subtraction
@@ -59,24 +65,26 @@ module Adder_Subtractor(
                     case (shift_flag)
                         // There is no shift -> add both leading 1's back
                         0:  begin
-                                mant_B_2s_cmp = ~{1'b1, mant_B};
+                                mant_B_2s_cmp = ~{1'b1, mant_B, GRS_in};
                                 mant_B_2s_cmp = mant_B_2s_cmp + 1;
-                                mant = {1'b1,mant_A} + mant_B_2s_cmp;
+                                int_mant = {1'b1, mant_A, 3'b000} + mant_B_2s_cmp;
                             end
                         // There is a shift -> only add leading 1 to mant_A
                         1:  begin
-                                mant_B_2s_cmp = ~{1'b0, mant_B};
+                                mant_B_2s_cmp = ~{1'b0, mant_B, GRS_in};
                                 mant_B_2s_cmp = mant_B_2s_cmp + 1;
-                                mant = {1'b1,mant_A} + mant_B_2s_cmp;
+                                int_mant = {1'b1, mant_A, 3'b000} + mant_B_2s_cmp;
                             end
                     endcase
+                    // Set outputs
+                    mant = int_mant[27:3];
+                    GRS_out = int_mant[2:0];
                     // Set Z flag if result is 0
-                    z_flag = (mant == 0) ? 1'b1 : 1'b0;
-                    // Sign bit set if either of the sign bits is set
+                    z_flag = (int_mant == 0);
+                    // Sign bit set if   either of the sign bits is set
                     sign = sign_A | sign_B;
                end
-    
         endcase
-    
+        
     end
 endmodule
