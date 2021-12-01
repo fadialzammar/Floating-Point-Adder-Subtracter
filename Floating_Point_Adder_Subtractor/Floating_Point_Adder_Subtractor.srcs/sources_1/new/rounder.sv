@@ -7,18 +7,15 @@ module rounder(
     );
 
     always_comb begin
-        priority case (GRS) inside
+        priority case ({mant[0], GRS}) inside
+            // nearest even, round down
+            4'b0100: S = {sign, exp, mant};
+            // nearest even, round up - if incrementing would overflow, don't increment
+            4'b1100: S = ({exp, mant} == {31{1'b1}}) ? {sign, exp, mant} : {sign, exp, mant} + 1;
             // round down
-            3'b0??: S = {sign, exp, mant};
-
-            // "halfway" case, round to nearest even
-            3'b100: begin 
-                
-            end
-
+            4'b?0??: S = {sign, exp, mant};         
             // round up - if incrementing would overflow, don't increment
-            3'b1??: S = ({exp, mant} == {31{1'b1}}) ? {sign, exp, mant} : {sign, exp, mant} + 1;
-
+            4'b?1??: S = ({exp, mant} == {31{1'b1}}) ? {sign, exp, mant} : {sign, exp, mant} + 1;
             default: S = {sign, exp, mant};
         endcase
     end
