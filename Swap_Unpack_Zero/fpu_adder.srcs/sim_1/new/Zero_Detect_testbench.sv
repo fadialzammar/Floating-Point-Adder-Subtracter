@@ -21,9 +21,10 @@
 
 
 module Zero_Detect_testbench();
+    logic sign_B = 1;
     logic [7:0] exp_B = 0;
     logic [22:0] mant_B = 0;
-    logic zero_B;
+    logic [2:0] special_B;
     
     Zero_Detect DUT (.*);
     

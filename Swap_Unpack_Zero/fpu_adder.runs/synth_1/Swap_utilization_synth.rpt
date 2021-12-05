@@ -1,7 +1,7 @@
-Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2020.2.2 (win64) Build 3118627 Tue Feb  9 05:14:06 MST 2021
-| Date         : Sat Nov 27 14:45:13 2021
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Dec  4 15:08:56 2021
 | Host         : ARIA-DESKTOP running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Swap_utilization_synth.rpt -pb Swap_utilization_synth.pb
 | Design       : Swap
