@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../EE523_FPU.srcs/sources_1/new/Add_Sub.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/FPU_Wrapper.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/PostNormalize.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/PreNormalize.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/Rounder.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/Swap.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/Unpack.sv" \
+"../../../../EE523_FPU.srcs/sources_1/new/Zero_Detect.sv" \
+"../../../../EE523_FPU.srcs/sim_1/new/TestBench2.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
