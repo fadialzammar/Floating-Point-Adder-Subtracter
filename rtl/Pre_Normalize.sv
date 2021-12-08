@@ -93,9 +93,8 @@ module Pre_Normalize(
                     22: GRS[0] = |mant_B[20:0] | int_mant_B[0];
                     23: GRS[0] = |mant_B[21:0] | int_mant_B[0];
                     24: GRS[0] = |mant_B[22:0] | int_mant_B[0];
-                    25: GRS[0] = |mant_B[23:0] | int_mant_B[0];
                     //Rest of cases default to the logical OR of all bits for larger shifts
-                    default: GRS[0] = |mant_B[23:0] | int_mant_B[0];
+                    default: GRS[0] = |mant_B[22:0] | int_mant_B[0];
                 endcase
             end
         else
