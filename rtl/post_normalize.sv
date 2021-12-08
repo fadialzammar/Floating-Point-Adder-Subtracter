@@ -26,7 +26,7 @@ module post_normalize(
                     GRS_out = GRS_in;
                 end
                 default: begin
-                    $error("bad mantissa header before post-normalization");
+                    //$error("bad mantissa header before post-normalization");
                     mant_full = mant_in;
                     exp_out = exp_in;
                     GRS_out = GRS_in;
@@ -45,14 +45,14 @@ module post_normalize(
                     GRS_out = GRS_in;
                 end
                 default: begin
-                    $error("bad mantissa header before post-normalization");
+                    //$error("bad mantissa header before post-normalization");
                     mant_full = mant_in;
                     exp_out = exp_in;
                     GRS_out = GRS_in;
                 end
             endcase
         end
-        assert (mant_full[24:23] == 2'b01) else $error("bad mantissa header after post-normalization");
+        assert (mant_full[24:23] == 2'b01); //else $error("bad mantissa header after post-normalization");
     end
 
     assign mant_out = mant_full[22:0]; // leading 01 is implicit
