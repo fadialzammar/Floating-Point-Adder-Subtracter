@@ -1,4 +1,0 @@
-Running: xsim.dir/Zero_Detect_testbench_behav/xsimk.exe -simmode gui -wdb Zero_Detect_testbench_behav.wdb -simrunnum 0 -socket 54785
-Design successfully loaded
-Design Loading Memory Usage: 6912 KB (Peak: 6912 KB)
-Design Loading CPU Usage: 0 ms

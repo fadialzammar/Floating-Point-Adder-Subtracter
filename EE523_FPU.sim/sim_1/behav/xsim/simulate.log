@@ -1,5 +1,0 @@
-Time resolution is 1 ps
-Error: Assertion violation
-Time: 61 ns  Iteration: 0  Process: /TestBench/DUT/PO/Always36_5  File: C:/Users/jskel/Documents/Vivado/EE523_FPU/EE523_FPU.srcs/sources_1/new/PostNormalize.sv
-Error: Assertion violation
-Time: 121 ns  Iteration: 0  Process: /TestBench/DUT/PO/Always36_5  File: C:/Users/jskel/Documents/Vivado/EE523_FPU/EE523_FPU.srcs/sources_1/new/PostNormalize.sv
